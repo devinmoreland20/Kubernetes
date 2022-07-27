@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    tier: frontend
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+    # - name: busybox
+    #   image: busyboxapp
+#kubectl apply -f pod.yaml   must be yaml not yml
+#kubectl descriube pod nginx  - describs the pod
+kubectl run nginx --image=nginx    - creates pod
+kubectl delete pod nginx
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres
+  labels:
+    tier: db-tier
+spec:
+  containers:
+    - name: postgres
+      image: postgres
+      env: 
+        - name: POSTRGES_PASSWORD
+          value: mysecretpassword
