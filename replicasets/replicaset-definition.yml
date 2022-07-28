@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: front-end
+
+spec: #RS spec
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+
+    spec: #pod spec
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 6
+  selector:
+    matchLabels:
+      type: front-end
+#    1018  kubectl create -f replicaset-definition.yml
+#  1019  kubectl get replicaset
+#  1020  kubectl get pods
+#  1021  kubectl delete pod myapp-replicaset-7gnng
+#  1022  kubectl get pods
+#  1023  kubectl replace -f replicaset-definition.yml      update the yml then ruin this
+# kubectl scale --replicas=6 replicaset-definition.yml
+#kubectl scale --replicas=6 replicateset myapp-replicaset

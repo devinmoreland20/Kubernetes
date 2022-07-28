@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: nginx
+spec:
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          volumeMounts:
+            - mountPath: $(pwd):/usr/share/nginx/html
+              name: index.html
+      volumes:
+        - name: test
+          hostPath:
+            path: /index.html
+            type: File
+  selector:
+    matchLabels:
+      app: myapp
+  replicas: 4
