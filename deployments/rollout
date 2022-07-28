@@ -1,0 +1,25 @@
+kubectl create -f deploy.yaml
+kubectl get deployments
+kubectl apply -f deplo.yaml
+kubectl set image deployment/myappdeployment nginx=nginx:1.9.1
+kubectl rollout status deployment/myappdeployment 
+kubectl rollout undo deployment 
+d kubectl edit deployment frontend
+
+
+kubectl describe deployment myapp-deployment
+ 1117  kubectl rollout hiostory deployment.apps/myapp-deployment
+ 1118  kubectl rollout history deployment.apps/myapp-deployment
+ 1119  kubectl edit deployment myapp-deployment --record
+ 1120  kubectl rollout history deployment.apps/myapp-deployment
+ 1121  kubectl rollout status deployment.apps/myapp-deployment
+ 1122  kubectl get deployment my-appdeployment
+ 1123  kubectl get deployment myapp-deployment
+ 1124  kubectl get pods
+ 1125  kubectl rollout history deployment/myapp-deployment
+ 1126  kubectl rollout undo deployment/myapp-deployment
+ 1127  kubectl rollout status deployment.apps/myapp-deployment
+ 1128  kubectl get pods
+ 1129  kubectl get pods
+ 1130  kubectl get pods
+ 1131  kubectl describe deployment myapp-deployment

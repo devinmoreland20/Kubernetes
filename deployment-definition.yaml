@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  selector:
+    matchLabels:
+      type: front-end
+  replicas: 3
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+
+
+ 1070  kubectl create -f deployment-definition.yaml
+ 1071  cd ..
+ 1072  kubectl create -f deployment-definition.yaml
+ 1073  kubectl get deployments
+ 1074  kubectl get replicaset
+ 1075  kubectl get pods
+
+ deployments will make a replicaset
