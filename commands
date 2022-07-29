@@ -1,0 +1,39 @@
+
+#runs a pod via the CLI
+kubectl run nginx1 --image=nginx
+
+#describes the pods
+kubectl describe pods
+
+#delete pod
+kubectl delete pod <pod name>
+
+#edit a pod
+kubectl edit pod <pod name>
+
+#get all pods and stuff
+kubectl get pods
+
+#create a deployment
+kubectl create deployment --image nginx my-nginx
+
+#scale a deployment 
+kubectl scale deployment my-nginx --replicas=3
+
+#dry run
+kubectl run nginx1 --image=nginx --dry-run=client -o yaml --restart=Never>Yamlfile
+
+# get namespaces
+kubectl get namespaces
+
+#create a name space
+kubectl create ns newnamespace
+
+#put dep[loyment in name space
+kubectl create -f nginx.yaml -n newnamespace
+
+#show all deployments across namespaces
+kubectl get all --all-namespaces
+
+#apply changes
+kubectl apply -f <filename>
